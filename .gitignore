@@ -68,5 +68,4 @@ jspm_packages/
 
 # Docs Custom
 .cache/
-public
 yarn-error.log

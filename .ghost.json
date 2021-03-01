@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://reelopinions.herokuapp.com",
-    "contentApiKey": "6087c2b2d067224f477db87fab"
+    "apiUrl": "https://blog.colloquial.studio",
+    "contentApiKey": "98866ea527c8be36d13238cbc8"
   },
   "production": {
-    "apiUrl": "https://reelopinions.herokuapp.com",
-    "contentApiKey": "6087c2b2d067224f477db87fab"
+    "apiUrl": "https://blog.colloquial.studio",
+    "contentApiKey": "98866ea527c8be36d13238cbc8"
   }
 }

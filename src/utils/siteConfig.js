@@ -1,9 +1,9 @@
 module.exports = {
   siteUrl: `http://reelopinions.com`, // Site domain. Do not include a trailing slash!
 
-  postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
+  postsPerPage: 15, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
-  siteTitleMeta: `Reel Opininons`, // This allows an alternative site title for meta data for pages.
+  siteTitleMeta: `Reel Opinions`, // This allows an alternative site title for meta data for pages.
   siteDescriptionMeta: `Movies and more.`, // This allows an alternative site description for meta data for pages.
 
   shareImageWidth: 1000, // Change to the width of your default share image

@@ -5,6 +5,8 @@ import { graphql } from "gatsby";
 import { Layout, PostCard, Pagination } from "../components/common";
 import { MetaData } from "../components/common/meta";
 
+import AuthorCard from "../components/AuthorCard";
+
 /**
  * Author page (/author/:slug)
  *
@@ -25,57 +27,26 @@ const Author = ({ data, location, pageContext }) => {
     <>
       <MetaData data={data} location={location} type="profile" />
       <Layout>
-        <div className="container">
-          <header className="author-header">
-            <div className="author-header-content">
-              <h1>{author.name}</h1>
-              {author.bio && <p>{author.bio}</p>}
-              <div className="author-header-meta">
-                {author.website && (
-                  <a
-                    className="author-header-item"
-                    href={author.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Website
-                  </a>
-                )}
-                {twitterUrl && (
-                  <a
-                    className="author-header-item"
-                    href={twitterUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Twitter
-                  </a>
-                )}
-                {facebookUrl && (
-                  <a
-                    className="author-header-item"
-                    href={facebookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Facebook
-                  </a>
-                )}
-              </div>
+        <div className="flex justify-center">
+          <div className="w-100 md:w-3/4 lg:w-2/3">
+            <div className="flex flex-col justify-center mb-5">
+              <header className="author-header m-5">
+                <AuthorCard author={author} left={false} />
+              </header>
+              <section className="w-full grid grid-cols-1 grid-rows-9 md:grid-cols-12 md:grid-rows-8">
+                {posts.map(({ node }, index) => (
+                  // The tag below includes the markup for each post - components/common/PostCard.js
+                  <PostCard
+                    key={node.id}
+                    post={node}
+                    feature={false}
+                    index={index}
+                  />
+                ))}
+              </section>
+              <Pagination pageContext={pageContext} />
             </div>
-            <div className="author-header-image">
-              {author.profile_image && (
-                <img src={author.profile_image} alt={author.name} />
-              )}
-            </div>
-          </header>
-          <section className="post-feed">
-            {posts.map(({ node }) => (
-              // The tag below includes the markup for each post - components/common/PostCard.js
-              <PostCard key={node.id} post={node} />
-            ))}
-          </section>
-          <Pagination pageContext={pageContext} />
+          </div>
         </div>
       </Layout>
     </>

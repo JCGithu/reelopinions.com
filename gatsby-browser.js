@@ -1,3 +1,5 @@
+const { contains } = require("cheerio");
+
 require("./src/styles/tailwind.css");
 /* eslint-disable */
 /**
@@ -31,10 +33,15 @@ var trustAllScripts = function () {
 
   for (var i = 0; i < embedNodes.length; i += 1) {
     var embed = embedNodes[i];
-    embed.removeAttribute("width");
-    embed.removeAttribute("height");
-    embed.classList.add("h-full", "w-full");
-    embed.parentNode.classList.add("aspect-w-16", "aspect-h-9");
+    console.log(embed);
+    if (embed.src.includes("youtube.com")) {
+      embed.removeAttribute("width");
+      embed.removeAttribute("height");
+      embed.classList.add("h-full", "w-full");
+      embed.parentNode.classList.add("aspect-w-16", "aspect-h-9");
+    } else if (embed.src.includes("anchor.fm")) {
+      embed.classList.add("p-3", "m-2", "w-full", "h-48", "relative");
+    }
   }
 };
 

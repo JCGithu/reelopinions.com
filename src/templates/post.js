@@ -8,6 +8,7 @@ import { MetaData } from "../components/common/meta";
 
 import "@fontsource/newsreader/400.css";
 import AuthorCard from "../components/AuthorCard";
+import SimilarTags from "../components/SimilarTags";
 
 /**
  * Single post view (/:slug)
@@ -17,7 +18,7 @@ import AuthorCard from "../components/AuthorCard";
  */
 const Post = ({ data, location }) => {
   const post = data.ghostPost;
-  console.log(post.primary_author);
+  const relTag = data.allGhostPost.edges;
 
   return (
     <>
@@ -47,11 +48,11 @@ const Post = ({ data, location }) => {
             <section className="flex justify-center mb-5">
               <div className="w-3/4">
                 {post.excerpt && (
-                  <div className="font-quote text-3xl m-2 py-2 px-1 text-ro-dark">
+                  <div className="font-quote text-3xl m-2 py-2 px-1 text-ro-black">
                     <p>{post.excerpt}</p>
                   </div>
                 )}
-                <div className="w-full h-1 bg-ro-dark my-3"></div>
+                <div className="w-full h-1 bg-ro-black my-3"></div>
                 <div className="flex flex-row items-center">
                   <p className="text-ro-red">
                     By{" "}
@@ -70,13 +71,14 @@ const Post = ({ data, location }) => {
                   dangerouslySetInnerHTML={{ __html: post.html }}
                 />
                 {/* Author Card */}
-                <AuthorCard post={post} />
+                <AuthorCard author={post.primary_author} left={false} />
               </div>
             </section>
           </article>
         </div>
-        <div className="w-100 bg-ro-black h-24 p-4 text-ro-white flex justify-center">
+        <div className="w-100 bg-ro-black h-full p-4 text-ro-white flex flex-col justify-center">
           <div className="w-3/4">More articles in {post.primary_tag.name}</div>
+          <SimilarTags tag={relTag}></SimilarTags>
         </div>
       </Layout>
     </>
@@ -99,9 +101,31 @@ Post.propTypes = {
 export default Post;
 
 export const postQuery = graphql`
-  query($slug: String!) {
+  query($slug: String!, $tag: String) {
     ghostPost(slug: { eq: $slug }) {
       ...GhostPostFields
+    }
+    allGhostPost(
+      limit: 3
+      filter: { tags: { elemMatch: { slug: { eq: $tag } } } }
+      sort: { order: DESC, fields: [published_at] }
+    ) {
+      edges {
+        node {
+          id
+          primary_tag {
+            slug
+            name
+          }
+          title
+          url
+          custom_excerpt
+          excerpt
+          feature_image
+          featured
+          slug
+        }
+      }
     }
   }
 `;

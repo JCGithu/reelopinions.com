@@ -1,52 +1,192 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import { Tags } from "@tryghost/helpers-gatsby";
-import { readingTime as readingTimeHelper } from "@tryghost/helpers";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, feature, index }) => {
   const url = `/${post.slug}/`;
-  const readingTime = readingTimeHelper(post);
-  console.log(post);
-
-  return (
-    <Link to={url} className="post-card">
-      <div className="p-2 relative h-full">
-        <header className="post-card-header">
-          {post.feature_image && (
-            <div className="h-32 w-9/10 items-center flex rounded object-cover">
-              <img
-                className="object-cover w-full h-32 rounded"
-                src={`${post.feature_image}`}
-              ></img>
+  var settings = [];
+  var placeSet = "";
+  if (feature) {
+    settings = [
+      "md:col-span-8 md:row-span-1",
+      "md:col-span-4 md:row-span-1 md:col-start-9 md:row-start-1",
+      "md:col-span-4 md:row-span-1 md:col-start-1 md:row-start-2",
+      "md:col-span-4 md:col-start-5 md:row-start-2",
+      "md:col-span-4 md:col-start-9 md:row-start-2",
+      "md:col-span-3 md:col-start-1 md:row-start-3",
+      "md:col-span-3 md:col-start-4 md:row-start-3",
+      "md:col-span-3 md:col-start-7 md:row-start-3",
+      "md:col-span-3 md:col-start-10 md:row-start-3",
+      "md:col-span-6 md:col-start-1 md:row-start-4",
+      "md:col-span-6 md:col-start-7 md:row-start-4",
+      "md:col-span-12 md:col-start-1 md:row-start-5",
+      "md:col-span-4 md:col-start-1 md:row-start-6",
+      "md:col-span-4 md:col-start-5 md:row-start-6",
+      "md:col-span-4 md:col-start-9 md:row-start-6",
+    ];
+    placeSet = settings[index];
+    return (
+      <div
+        className={`col-span-1 row-span-1 col-start-1 row-start-${
+          index + 1
+        } ${placeSet} ${index === 11 && "bg-gray-100 md:rounded rounded-none"}`}
+      >
+        <div
+          className={`p-2 relative ${
+            index === 11
+              ? "grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2"
+              : ""
+          }`}
+        >
+          <header>
+            <div className="w-full items-center relative flex rounded object-cover">
+              <Link to={url}>
+                <img
+                  className={`object-cover h-48 w-full rounded ${
+                    index <= 1 ? "md:h-96" : "h-48"
+                  }`}
+                  src={`${post.feature_image}`}
+                ></img>
+              </Link>
+              {index <= 1 && (
+                <div className="absolute w-full rounded bottom-0 bg-gradient-to-t from-ro-black">
+                  <div className="px-5 md:px-3 flex flex-row py-1">
+                    {post.primary_tag && (
+                      <div
+                        key={post.primary_tag.slug}
+                        className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1"
+                      >
+                        <Link
+                          to={`/tag/${post.primary_tag.slug}`}
+                          rel={post.primary_tag.name}
+                        >
+                          {post.primary_tag.name}
+                        </Link>
+                      </div>
+                    )}
+                    {post.featured && (
+                      <div className="text-xs text-ro-red font-bold rounded-md w-100 pr-2">
+                        Featured
+                      </div>
+                    )}
+                  </div>
+                  <Link to={url}>
+                    {index === 0 ? (
+                      <h1 className="pb-1 px-5 md:px-3 h-100 w-full text-ro-white font-bold xl:text-4xl text-2xl leading-snug">
+                        {post.title}
+                      </h1>
+                    ) : (
+                      <h1 className="pb-1 px-5 md:px-3 h-100 w-full text-ro-white font-bold xl:text-xl text-md leading-snug">
+                        {post.title}
+                      </h1>
+                    )}
+                    <section className="pb-3 px-5 md:px-3 text-sm text-ro-white pb-2">
+                      {post.excerpt}
+                    </section>
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-          <div className="flex flex-row py-1">
-            {post.primary_tag && (
-              <div
-                key={post.primary_tag.slug}
-                className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1"
-              >
-                <Link
-                  to={`/tag/${post.primary_tag.slug}`}
-                  rel={post.primary_tag.name}
+          </header>
+          <div>
+            {index > 1 && (
+              <div className={`${index === 11 && "text-right px-2"}`}>
+                <div
+                  className={`flex flex-row py-1 ${
+                    index === 11 && "justify-end"
+                  }`}
                 >
-                  {post.primary_tag.name}
+                  {post.primary_tag && (
+                    <div className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1">
+                      <Link
+                        to={`/tag/${post.primary_tag.slug}`}
+                        rel={post.primary_tag.name}
+                      >
+                        {post.primary_tag.name}
+                      </Link>
+                    </div>
+                  )}
+                  {post.featured && (
+                    <div className="text-xs text-ro-red font-bold rounded-md w-100 pr-2">
+                      Featured
+                    </div>
+                  )}
+                </div>
+                <Link to={url}>
+                  <h2 className="font-bold text-xl">{post.title}</h2>
+                  <section className="text-sm pb-2">{post.excerpt}</section>
                 </Link>
               </div>
             )}
-            {post.featured && (
-              <div className="text-xs text-ro-red font-bold rounded-md w-100 pr-2">
-                Featured
-              </div>
-            )}
           </div>
-          <h2 className="font-bold text-xl">{post.title}</h2>
-        </header>
-        <section className="text-sm pb-2">{post.excerpt}</section>
+        </div>
       </div>
-    </Link>
-  );
+    );
+  } else {
+    settings = [
+      "md:col-span-4 md:col-start-1 md:row-start-1",
+      "md:col-span-4 md:col-start-5 md:row-start-1",
+      "md:col-span-4 md:col-start-9 md:row-start-1",
+      "md:col-span-4 md:col-start-1 md:row-start-2",
+      "md:col-span-4 md:col-start-5 md:row-start-2",
+      "md:col-span-4 md:col-start-9 md:row-start-2",
+      "md:col-span-4 md:col-start-1 md:row-start-3",
+      "md:col-span-4 md:col-start-5 md:row-start-3",
+      "md:col-span-4 md:col-start-9 md:row-start-3",
+      "md:col-span-4 md:col-start-1 md:row-start-4",
+      "md:col-span-4 md:col-start-5 md:row-start-4",
+      "md:col-span-4 md:col-start-9 md:row-start-4",
+      "md:col-span-4 md:col-start-1 md:row-start-5",
+      "md:col-span-4 md:col-start-5 md:row-start-5",
+      "md:col-span-4 md:col-start-9 md:row-start-5",
+    ];
+    placeSet = settings[index];
+    return (
+      <div
+        className={`col-span-1 row-span-1 col-start-1 row-start-${
+          index + 1
+        } ${placeSet}`}
+      >
+        <div className="p-2 relative">
+          <Link to={url}>
+            <header>
+              <div className="w-full items-center relative flex rounded object-cover">
+                <img
+                  className="object-cover h-48 w-full rounded"
+                  src={`${post.feature_image}`}
+                ></img>
+              </div>
+            </header>
+          </Link>
+          <div>
+            <div>
+              <div className="flex flex-row py-1">
+                {post.primary_tag && (
+                  <div className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1">
+                    <Link
+                      to={`/tag/${post.primary_tag.slug}`}
+                      rel={post.primary_tag.name}
+                    >
+                      {post.primary_tag.name}
+                    </Link>
+                  </div>
+                )}
+                {post.featured && (
+                  <div className="text-xs text-ro-red font-bold rounded-md w-100 pr-2">
+                    Featured
+                  </div>
+                )}
+              </div>
+              <Link to={url}>
+                <h2 className="font-bold text-xl">{post.title}</h2>
+                <section className="text-sm pb-2">{post.excerpt}</section>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 PostCard.propTypes = {
@@ -61,11 +201,9 @@ PostCard.propTypes = {
       })
     ),
     excerpt: PropTypes.string.isRequired,
-    primary_author: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      profile_image: PropTypes.string,
-    }).isRequired,
   }).isRequired,
+  feature: PropTypes.bool,
+  index: PropTypes.number,
 };
 
 export default PostCard;

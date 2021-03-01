@@ -12,7 +12,7 @@ const Pagination = ({ pageContext }) => {
 
   return (
     <nav
-      className="pagination flex flex-row items-center rounded p-2 my-2 text-sm"
+      className="pagination grid grid-rows-3 grid-cols-1 md:grid-rows-1 md:grid-cols-3 items-center rounded p-2 my-2 text-sm"
       role="navigation"
     >
       <div>
@@ -20,14 +20,14 @@ const Pagination = ({ pageContext }) => {
           <Link
             to={previousPagePath}
             rel="prev"
-            className="bg-ro-black text-ro-white text-center items-center rounded py-1 px-3 m-2"
+            className="bg-ro-black text-ro-white text-center items-center hover:bg-ro duration-300 rounded py-1 px-3 m-2"
           >
             Previous
           </Link>
         )}
       </div>
       {numberOfPages > 1 && (
-        <div className="pagination-location font-bold">
+        <div className="pagination-location font-bold py-1 text-center">
           Page {humanPageNumber} of {numberOfPages}
         </div>
       )}

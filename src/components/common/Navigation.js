@@ -2,26 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-/**
- * Navigation component
- *
- * The Navigation component takes an array of your Ghost
- * navigation property that is fetched from the settings.
- * It differentiates between absolute (external) and relative link (internal).
- * You can pass it a custom class for your own styles, but it will always fallback
- * to a `site-nav-item` class.
- *
- */
 const Navigation = ({ data, navClass }) => (
   <>
     {data.map((navItem, i) => {
       if (navItem.url.match(/^\s?http(s?)/gi)) {
         return (
-          <div className="px-2 topLink">
+          <div className="px-2 topLink" key={i}>
             <a
               className={navClass}
               href={navItem.url}
-              key={i}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -31,8 +20,8 @@ const Navigation = ({ data, navClass }) => (
         );
       } else {
         return (
-          <div className="px-2 topLink">
-            <Link className={navClass} to={navItem.url} key={i}>
+          <div className="px-0 md:px-2 topLink" key={i}>
+            <Link className={navClass} to={navItem.url}>
               {navItem.label}
             </Link>
           </div>

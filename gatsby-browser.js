@@ -30,6 +30,7 @@ var trustAllScripts = function () {
   }
 
   var embedNodes = document.querySelectorAll("iframe");
+  var imgNodes = document.querySelectorAll("img");
 
   for (var i = 0; i < embedNodes.length; i += 1) {
     var embed = embedNodes[i];
@@ -41,6 +42,10 @@ var trustAllScripts = function () {
     } else if (embed.src.includes("anchor.fm")) {
       embed.classList.add("p-3", "m-2", "w-full", "h-48", "relative");
     }
+  }
+  for (var i = 0; i < imgNodes.length; i += 1) {
+    var img = imgNodes[i];
+    img.classList.add("w-full");
   }
 };
 

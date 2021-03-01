@@ -17,7 +17,6 @@ const Index = ({ data, location, pageContext }) => {
   const posts = data.post.edges;
   const features = data.featured.edges;
   const website = data.site.edges[0].node;
-  console.log(pageContext);
   return (
     <>
       <MetaData location={location} />

@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
-import { Layout, PostCard, Pagination } from "../components/common";
-import { MetaData } from "../components/common/meta";
+import { Layout } from "../components/common";
 
 import AuthorCard from "../components/AuthorCard";
 
@@ -16,10 +15,8 @@ import AuthorCard from "../components/AuthorCard";
 const Writers = ({ data }) => {
   //console.log(data.allGhostAuthor.edges);
   var authors = data.allGhostAuthor.edges;
-  console.log(authors);
   return (
     <>
-      <MetaData location={location} />
       <Layout>
         <div className="flex justify-center">
           <div className="w-100 md:w-3/4">

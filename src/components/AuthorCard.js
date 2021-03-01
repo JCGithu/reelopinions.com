@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
 const AuthorCard = ({ author, left }) => {
-  console.log(author);
   //const url = `/${author.slug}/`;
   if (!left) {
     left = false;
@@ -81,9 +80,11 @@ AuthorCard.propTypes = {
     slug: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     bio: PropTypes.string,
+    location: PropTypes.string,
     profile_image: PropTypes.string,
     twitter: PropTypes.string,
     website: PropTypes.string,
+    postCount: PropTypes.number,
   }).isRequired,
   left: PropTypes.bool,
 };

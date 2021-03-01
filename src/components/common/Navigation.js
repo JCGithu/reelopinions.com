@@ -32,7 +32,7 @@ const Navigation = ({ data, navClass }) => (
 );
 
 Navigation.defaultProps = {
-  navClass: `site-nav-item`,
+  navClass: "site-nav-item",
 };
 
 Navigation.propTypes = {

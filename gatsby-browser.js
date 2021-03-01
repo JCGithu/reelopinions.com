@@ -33,7 +33,6 @@ var trustAllScripts = function () {
 
   for (var i = 0; i < embedNodes.length; i += 1) {
     var embed = embedNodes[i];
-    console.log(embed);
     if (embed.src.includes("youtube.com")) {
       embed.removeAttribute("width");
       embed.removeAttribute("height");

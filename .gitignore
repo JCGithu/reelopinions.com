@@ -70,4 +70,4 @@ jspm_packages/
 .cache/
 yarn-error.log
 
-/public
+public/

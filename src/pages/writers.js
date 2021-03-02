@@ -46,7 +46,10 @@ export default Writers;
 
 export const pageQuery = graphql`
   query MyQuery {
-    allGhostAuthor(skip: 1) {
+    allGhostAuthor(
+      sort: { order: DESC, fields: postCount }
+      filter: { slug: { ne: "reelopinions" } }
+    ) {
       edges {
         node {
           id

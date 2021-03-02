@@ -127,6 +127,17 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, postTitle }) => {
                 </a>
               )}
               <a
+                href="https://www.youtube.com/channel/UCdpWipl-OZfXMFtPkss349w"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="w-5 mr-2"
+                  src="/images/icons/youtube.svg"
+                  alt="YouTube"
+                />
+              </a>
+              <a
                 href={`https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/`}
                 target="_blank"
                 rel="noopener noreferrer"

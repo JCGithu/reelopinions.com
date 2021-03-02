@@ -51,10 +51,8 @@ export const ghostPostFields = graphql`
     feature_image
     excerpt
     custom_excerpt
-    visibility
 
     # Dates formatted
-    created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
     published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
     updated_at_pretty: updated_at(formatString: "DD MMMM, YYYY")
 
@@ -78,7 +76,6 @@ export const ghostPostFields = graphql`
       name
       slug
       bio
-      # email
       profile_image
       twitter
       facebook
@@ -88,7 +85,6 @@ export const ghostPostFields = graphql`
       name
       slug
       bio
-      # email
       profile_image
       twitter
       facebook
@@ -99,20 +95,10 @@ export const ghostPostFields = graphql`
     primary_tag {
       name
       slug
-      description
-      feature_image
-      meta_description
-      meta_title
-      visibility
     }
     tags {
       name
       slug
-      description
-      feature_image
-      meta_description
-      meta_title
-      visibility
     }
 
     # Content
@@ -128,7 +114,6 @@ export const ghostPostFields = graphql`
     codeinjection_head
     codeinjection_styles
     comment_id
-    reading_time
   }
 `;
 

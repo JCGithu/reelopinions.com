@@ -42,9 +42,9 @@ const PostCard = ({ post, feature, index }) => {
             <div className="w-full items-center relative flex rounded object-cover">
               <Link to={url}>
                 <img
-                  className={`object-cover h-48 w-full rounded ${
-                    index <= 1 ? "md:h-96" : "h-48"
-                  }`}
+                  className={`object-cover h-48 w-full min-w-full rounded ${
+                    index <= 1 && "md:h-96"
+                  } ${index === 0 && "overflow-hidden xl:w-screen 2xl:h-120"}`}
                   src={`${post.feature_image}`}
                 ></img>
               </Link>
@@ -113,7 +113,9 @@ const PostCard = ({ post, feature, index }) => {
                   )}
                 </div>
                 <Link to={url}>
-                  <h2 className="font-bold text-xl">{post.title}</h2>
+                  <h2 id="ignore" className="font-bold text-xl">
+                    {post.title}
+                  </h2>
                   <section className="text-sm pb-2">{post.excerpt}</section>
                 </Link>
               </div>
@@ -178,7 +180,9 @@ const PostCard = ({ post, feature, index }) => {
                 )}
               </div>
               <Link to={url}>
-                <h2 className="font-bold text-xl">{post.title}</h2>
+                <h2 id="ignore" className="font-bold text-xl">
+                  {post.title}
+                </h2>
                 <section className="text-sm pb-2">{post.excerpt}</section>
               </Link>
             </div>

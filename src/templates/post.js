@@ -18,6 +18,7 @@ import SimilarTags from "../components/SimilarTags";
  */
 const Post = ({ data, location }) => {
   const post = data.ghostPost;
+  const tags = post.tags;
   const relTag = data.allGhostPost.edges;
 
   return (
@@ -62,7 +63,7 @@ const Post = ({ data, location }) => {
                     >
                       <b>{post.primary_author.name}</b>{" "}
                     </Link>
-                    <i className="text-xs">{post.updated_at_pretty}</i>
+                    <i className="text-xs">{post.published_at_pretty}</i>
                   </p>
                 </div>
                 {/* The main post content */}
@@ -76,9 +77,31 @@ const Post = ({ data, location }) => {
             </section>
           </article>
         </div>
-        <div className="w-100 bg-ro-black h-full p-4 text-ro-white flex flex-col justify-center">
-          <div className="w-3/4">More articles in {post.primary_tag.name}</div>
-          <SimilarTags tag={relTag}></SimilarTags>
+        <div className="w-100 bg-ro-black h-full p-4 text-ro-white flex flex-col justify-center items-center">
+          <div className="w-100 md: w-3/4">
+            More articles in{" "}
+            <Link
+              to={`/tag/${post.primary_tag.slug}`}
+              rel={post.primary_tag.name}
+            >
+              {post.primary_tag.name}
+            </Link>
+            <SimilarTags tag={relTag}></SimilarTags>
+            <div>Other tags</div>
+            <div className="flex flex-row">
+              {tags.map(({ tag }, index) => (
+                <Link
+                  to={`/tag/${tags[index].slug}`}
+                  rel={tags[index].slug}
+                  key={`${tags[index].slug}${index}`}
+                >
+                  <p className="font-bold text-ro-red hover:text-ro-white duration-500 mr-2">
+                    {tags[index].name}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </Layout>
     </>
@@ -93,6 +116,22 @@ Post.propTypes = {
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
       excerpt: PropTypes.string,
+      primary_author: PropTypes.shape({
+        name: PropTypes.string,
+        slug: PropTypes.string,
+      }),
+      primary_tag: PropTypes.shape({
+        name: PropTypes.string,
+        slug: PropTypes.string,
+      }),
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          slug: PropTypes.string,
+        })
+      ),
+      updated_at_pretty: PropTypes.string,
+      published_at_pretty: PropTypes.string,
     }).isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,

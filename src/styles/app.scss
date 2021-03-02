@@ -105,3 +105,9 @@ body {
     opacity: 1;
   }
 }
+
+@media (min-width: 1536px) {
+  .\32 xl\:h-120 {
+    height: 30rem;
+  }
+}

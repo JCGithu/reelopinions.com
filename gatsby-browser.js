@@ -30,7 +30,8 @@ var trustAllScripts = function () {
   }
 
   var embedNodes = document.querySelectorAll("iframe");
-  var imgNodes = document.querySelectorAll("img");
+  var imgNodes = document.querySelectorAll("img.kg-image");
+  var hNodes = document.querySelectorAll("h2, h3");
 
   for (var i = 0; i < embedNodes.length; i += 1) {
     var embed = embedNodes[i];
@@ -45,7 +46,17 @@ var trustAllScripts = function () {
   }
   for (var i = 0; i < imgNodes.length; i += 1) {
     var img = imgNodes[i];
-    img.classList.add("w-full");
+    img.classList.add("w-full", "p-4", "m-2");
+  }
+  for (var i = 0; i < hNodes.length; i += 1) {
+    var headline = hNodes[i];
+    if (headline.id !== "ignore") {
+      if (headline.tagName == "H2") {
+        headline.classList.add("text-2xl", "font-bold", "my-3", "text-center");
+      } else {
+        headline.classList.add("text-lg", "font-bold", "my-3");
+      }
+    }
   }
 };
 

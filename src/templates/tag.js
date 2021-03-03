@@ -20,9 +20,9 @@ const Tag = ({ data, location, pageContext }) => {
       <MetaData data={data} location={location} type="series" />
       <Layout>
         <div>
-          <header className="w-100 bg-gray-200 p-10 flex justify-center">
+          <header className="w-100 bg-ro-red p-10 flex justify-center">
             <div className="w-3/4">
-              <h1 className="text-ro-red text-4xl font-bold">{tag.name}</h1>
+              <h1 className="text-ro-white text-4xl font-bold">{tag.name}</h1>
               {tag.description ? (
                 <p className="text-ro-black">{tag.description}</p>
               ) : null}

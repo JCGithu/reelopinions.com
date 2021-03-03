@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Login extends Component {
   componentDidMount() {
-    window.location.replace("https://reelopinions.herokuapp.com/ghost");
+    window.location.replace("https://blog.reelopinions.com/ghost");
   }
 
   render() {

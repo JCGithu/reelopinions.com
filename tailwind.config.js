@@ -13,6 +13,7 @@ module.exports = {
           light: "#7FB685",
           dark: "#426a5a",
           black: "#393e41",
+          vibrant: "#24A148",
         },
       },
       fontFamily: {

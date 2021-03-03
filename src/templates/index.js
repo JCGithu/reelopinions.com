@@ -47,12 +47,16 @@ const Index = ({ data, location, pageContext }) => {
               </div>
             </div>
           )}
-          <div className="lg:w-3/4 w-10/12">
-            <h1 className="font-bold text-ro-red text-3xl font-quote pb-3 pt-4">
-              Latest Articles
-            </h1>
-            <hr className="h-1 bg-ro-black"></hr>
-          </div>
+
+          {pageContext.pageNumber === 0 && (
+            <div className="lg:w-3/4 w-10/12">
+              <h1 className="font-bold text-ro-red text-3xl font-quote pb-3 pt-4">
+                Latest Articles
+              </h1>
+              <hr className="h-1 bg-ro-black"></hr>
+            </div>
+          )}
+
           <section className="lg:w-3/4 w-10/12 grid grid-cols-1 grid-rows-9 md:grid-cols-12 md:grid-rows-8">
             {posts.map(({ node }, index) => (
               // The tag below includes the markup for each post - components/common/PostCard.js

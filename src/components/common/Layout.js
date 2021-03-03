@@ -127,7 +127,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, postTitle }) => {
                 </a>
               )}
               <a
-                href="https://www.youtube.com/channel/UCdpWipl-OZfXMFtPkss349w"
+                href="https://www.youtube.com/c/reelopinions"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -160,23 +160,18 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, postTitle }) => {
         </div>
         <div className="w-full overflow-y-hidden flex-none">
           {/* The footer at the very bottom of the screen */}
-          <footer className="w-full bg-ro-black gap-2 grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid-rows-2 h-full p-0 text-ro-white">
-            <div className="justify-self-center flex flex-row items-center">
-              <Navigation
-                data={site.navigation}
-                navClass="justify-self-center items-center m-2"
-              />
-            </div>
-            <div className="justify-self-center flex flex-row items-center">
-              <Link to="/">{site.title}</Link> © 2021 &mdash; Published with{" "}
-              <a
-                className="site-foot-nav-item"
-                href="https://ghost.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ghost
-              </a>
+          <footer className="w-full bg-ro h-16 p-0 text-ro-white justify-center flex">
+            <div className="w-full md:w-3/4 gap-2 grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid-rows-2 items-center h-full">
+              <div className="lg:justify-self-start justify-self-center flex flex-row items-center">
+                <Navigation
+                  data={site.navigation}
+                  navClass="justify-self-center items-center m-2"
+                />
+              </div>
+              <div className="lg:justify-self-end justify-self-center flex flex-row items-center">
+                <Link to="/">{site.title} </Link>
+                {" © 2021"}
+              </div>
             </div>
           </footer>
         </div>

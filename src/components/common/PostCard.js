@@ -2,9 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-const PostCard = ({ post, feature, index }) => {
+const PostCard = ({ post, feature, banner, index }) => {
   const url = `/${post.slug}/`;
   var settings = [];
+  let bannerPic = "";
+  let bannerBox = "";
+  if (banner) {
+    bannerPic = "overflow-hidden xl:w-screen 2xl:h-120 lg:rounded-xl";
+    bannerBox = "lg:rounded-xl overflow-hidden card-effect";
+  }
   var placeSet = "";
   if (feature) {
     settings = [
@@ -29,13 +35,14 @@ const PostCard = ({ post, feature, index }) => {
       <div
         className={`col-span-1 row-span-1 col-start-1 row-start-${
           index + 1
-        } ${placeSet} ${index === 11 && "bg-gray-100 md:rounded rounded-none"}`}
+        } ${placeSet} ${
+          index === 11 && "flex items-center justify-center"
+        } ${bannerBox}`}
       >
         <div
           className={`p-2 relative ${
-            index === 11
-              ? "grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2"
-              : ""
+            index === 11 &&
+            "grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 md:w-4/6 w-full bg-gray-200 md:rounded-xl rounded-none"
           }`}
         >
           <header>
@@ -44,28 +51,15 @@ const PostCard = ({ post, feature, index }) => {
                 <img
                   className={`object-cover h-48 w-full min-w-full rounded ${
                     index <= 1 && "md:h-96"
-                  } ${index === 0 && "overflow-hidden xl:w-screen 2xl:h-120"}`}
+                  } ${index === 0 && `${bannerPic}`}`}
                   src={`${post.feature_image}`}
                 ></img>
               </Link>
               {index <= 1 && (
                 <div className="absolute w-full rounded bottom-0 bg-gradient-to-t from-ro-black">
                   <div className="px-5 md:px-3 flex flex-row py-1">
-                    {post.primary_tag && (
-                      <div
-                        key={post.primary_tag.slug}
-                        className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1"
-                      >
-                        <Link
-                          to={`/tag/${post.primary_tag.slug}`}
-                          rel={post.primary_tag.name}
-                        >
-                          {post.primary_tag.name}
-                        </Link>
-                      </div>
-                    )}
                     {post.featured && (
-                      <div className="text-xs text-ro-red font-bold rounded-md w-100 pr-2">
+                      <div className="text-xs text-ro-white bg-ro-red text-center font-bold rounded-md w-100 px-2">
                         Featured
                       </div>
                     )}
@@ -90,12 +84,8 @@ const PostCard = ({ post, feature, index }) => {
           </header>
           <div>
             {index > 1 && (
-              <div className={`${index === 11 && "text-right px-2"}`}>
-                <div
-                  className={`flex flex-row py-1 ${
-                    index === 11 && "justify-end"
-                  }`}
-                >
+              <div className={`${index === 11 && "mx-3"}`}>
+                <div className="flex flex-row py-1">
                   {post.primary_tag && (
                     <div className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1">
                       <Link

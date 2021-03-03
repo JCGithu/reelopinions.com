@@ -21,36 +21,40 @@ const Index = ({ data, location, pageContext }) => {
     <>
       <MetaData location={location} />
       <Layout isHome={true}>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center ">
           {pageContext.pageNumber === 0 && (
-            <div
-              className="w-full flex flex-col items-center justify-center"
-              style={{ backgroundImage: `url(${website.cover_image})` }}
-            >
-              <div className="w-full flex justify-center">
+            <div className="w-full flex flex-col items-center justify-center">
+              <div className="w-full flex justify-center z-10">
                 <img
                   className="h-14 m-4"
                   src={website.logo}
                   alt="Reel Opinions"
                 />
               </div>
-              <div className="lg:w-3/4 w-10/12 pb-4 pt-2">
+              <div className="lg:w-3/4 w-10/12 pb-4 pt-2 z-10">
                 {features.map(({ node }, index) => (
                   // The tag below includes the markup for each post - components/common/PostCard.js
                   <PostCard
                     key={node.id}
                     feature={true}
+                    banner={true}
                     post={node}
                     index={index}
                   />
                 ))}
               </div>
+              <img
+                src="/images/icons/blob.svg"
+                className="absolute z-0 blob w-full top-0 slide-bottom pointer-events-none "
+              ></img>
             </div>
           )}
-
           {pageContext.pageNumber === 0 && (
-            <div className="lg:w-3/4 w-10/12">
-              <h1 className="font-bold text-ro-red text-3xl font-quote pb-3 pt-4">
+            <div className="lg:w-3/4 w-10/12 justify-center">
+              <h1
+                id="latest"
+                className="font-bold text-ro text-3xl font-quote pb-3 pt-4 text-center"
+              >
                 Latest Articles
               </h1>
               <hr className="h-1 bg-ro-black"></hr>

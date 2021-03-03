@@ -49,19 +49,21 @@ const Post = ({ data, location }) => {
             <section className="flex justify-center mb-5">
               <div className="w-3/4">
                 {post.excerpt && (
-                  <div className="font-quote text-3xl m-2 py-2 px-1 text-ro-black">
+                  <div className="font-quote text-3xl my-2 py-2 text-ro-black">
                     <p>{post.excerpt}</p>
                   </div>
                 )}
                 <div className="w-full h-1 bg-ro-black my-3"></div>
                 <div className="flex flex-row items-center">
-                  <p className="text-ro-red">
+                  <p className="text-ro-black">
                     By{" "}
                     <Link
                       to={`/author/${post.primary_author.slug}`}
                       rel={post.primary_author.name}
                     >
-                      <b>{post.primary_author.name}</b>{" "}
+                      <b className="hover:text-ro-red duration-300">
+                        {post.primary_author.name}
+                      </b>{" "}
                     </Link>
                     <i className="text-xs">{post.published_at_pretty}</i>
                   </p>

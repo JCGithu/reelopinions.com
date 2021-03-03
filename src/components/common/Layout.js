@@ -160,7 +160,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, postTitle }) => {
         </div>
         <div className="w-full overflow-y-hidden flex-none">
           {/* The footer at the very bottom of the screen */}
-          <footer className="w-full bg-ro-red gap-2 grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid-rows-2 h-full p-0 text-ro-white">
+          <footer className="w-full bg-ro-black gap-2 grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid-rows-2 h-full p-0 text-ro-white">
             <div className="justify-self-center flex flex-row items-center">
               <Navigation
                 data={site.navigation}

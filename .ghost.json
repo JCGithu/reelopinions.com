@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://blog.colloquial.studio",
-    "contentApiKey": "98866ea527c8be36d13238cbc8"
+    "apiUrl": "https://blog.reelopinions.com",
+    "contentApiKey": "170fe49a34bdbe115adbd0cf00"
   },
   "production": {
-    "apiUrl": "https://blog.colloquial.studio",
-    "contentApiKey": "98866ea527c8be36d13238cbc8"
+    "apiUrl": "https://blog.reelopinions.com",
+    "contentApiKey": "170fe49a34bdbe115adbd0cf00"
   }
 }

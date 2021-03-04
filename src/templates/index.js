@@ -50,14 +50,14 @@ const Index = ({ data, location, pageContext }) => {
             </div>
           )}
           {pageContext.pageNumber === 0 && (
-            <div className="lg:w-3/4 w-10/12 justify-center">
+            <div className="lg:w-3/4 w-10/12 justify-center z-10">
               <h1
                 id="latest"
-                className="font-bold text-ro text-3xl font-quote pb-3 pt-4 text-center"
+                className="font-bold text-ro xl:text-ro-white text-3xl font-quote pb-3 pt-4 text-center"
               >
                 Latest Articles
               </h1>
-              <hr className="h-1 bg-ro-black"></hr>
+              <hr className="h-1 bg-ro-black border-0"></hr>
             </div>
           )}
 

@@ -19,7 +19,7 @@ const Writers = ({ data }) => {
     <>
       <Layout>
         <div className="flex justify-center">
-          <div className="w-100 md:w-3/4">
+          <div className="w-100 md:w-3/4 mb-10">
             <div className="flex flex-col justify-center mb-5 text-center m-4 font-bold text-4xl">
               Writers
             </div>

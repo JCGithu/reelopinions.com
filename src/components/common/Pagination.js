@@ -22,7 +22,7 @@ const Pagination = ({ pageContext }) => {
             rel="prev"
             className="bg-ro-black text-ro-white text-center items-center hover:bg-ro-red  duration-300 rounded py-1 px-3 m-2"
           >
-            {"<"}
+            {"🡄"}
           </Link>
         )}
       </div>
@@ -33,7 +33,7 @@ const Pagination = ({ pageContext }) => {
             rel="next"
             className="bg-ro-black text-ro-white rounded text-center items-center py-1 px-3 m-2 hover:bg-ro-red duration-300"
           >
-            {">"}
+            {"🡆"}
           </Link>
         )}
       </div>

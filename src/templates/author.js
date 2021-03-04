@@ -27,7 +27,7 @@ const Author = ({ data, location, pageContext }) => {
     <>
       <MetaData data={data} location={location} type="profile" />
       <Layout>
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <div className="w-100 md:w-3/4 lg:w-2/3">
             <div className="flex flex-col justify-center mb-5">
               <header className="author-header m-5">

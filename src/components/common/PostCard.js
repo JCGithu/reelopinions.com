@@ -19,9 +19,9 @@ const PostCard = ({ post, feature, banner, index }) => {
       "md:col-span-4 md:row-span-1 md:col-start-1 md:row-start-2",
       "md:col-span-4 md:col-start-5 md:row-start-2",
       "md:col-span-4 md:col-start-9 md:row-start-2",
-      "md:col-span-3 md:col-start-1 md:row-start-3",
-      "md:col-span-3 md:col-start-4 md:row-start-3",
-      "md:col-span-3 md:col-start-7 md:row-start-3",
+      "md:col-span-3 md:col-start-1 md:row-start-3 ",
+      "md:col-span-3 md:col-start-4 md:row-start-3 ",
+      "md:col-span-3 md:col-start-7 md:row-start-3 ",
       "md:col-span-3 md:col-start-10 md:row-start-3",
       "md:col-span-6 md:col-start-1 md:row-start-4",
       "md:col-span-6 md:col-start-7 md:row-start-4",
@@ -37,7 +37,7 @@ const PostCard = ({ post, feature, banner, index }) => {
           index + 1
         } ${placeSet} ${bannerBox}`}
       >
-        <div className={`p-2 relative`}>
+        <div className="p-2 relative">
           <header>
             <div className="w-full items-center relative flex rounded object-cover">
               <Link to={url}>
@@ -59,7 +59,7 @@ const PostCard = ({ post, feature, banner, index }) => {
                   </div>
                   <Link to={url}>
                     {index === 0 ? (
-                      <h1 className="pb-1 px-5 md:px-3 h-100 w-full text-ro-white font-bold xl:text-4xl text-2xl leading-snug">
+                      <h1 className="pb-1 px-5 md:px-3 h-100 w-full text-ro-white font-bold xl:text-4xl text-md md:text-2xl leading-snug">
                         {post.title}
                       </h1>
                     ) : (

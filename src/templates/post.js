@@ -91,17 +91,20 @@ const Post = ({ data, location }) => {
             <SimilarTags tag={relTag}></SimilarTags>
             <div>Other tags</div>
             <div className="flex flex-row">
-              {tags.map(({ tag }, index) => (
-                <Link
-                  to={`/tag/${tags[index].slug}`}
-                  rel={tags[index].slug}
-                  key={`${tags[index].slug}${index}`}
-                >
-                  <p className="font-bold text-ro-red hover:text-ro-white duration-500 mr-2">
-                    {tags[index].name}
-                  </p>
-                </Link>
-              ))}
+              <p className="font-bold text-ro-red">
+                {tags.map(({ tag }, index) => (
+                  <Link
+                    to={`/tag/${tags[index].slug}`}
+                    rel={tags[index].slug}
+                    key={`${tags[index].slug}${index}`}
+                  >
+                    <span className="hover:text-ro-white duration-500">
+                      {tags[index].name}
+                    </span>
+                    <span className="text-ro-white font-quote">{" / "}</span>
+                  </Link>
+                ))}
+              </p>
             </div>
           </div>
         </div>

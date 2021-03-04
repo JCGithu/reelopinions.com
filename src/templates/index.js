@@ -31,7 +31,7 @@ const Index = ({ data, location, pageContext }) => {
                   alt="Reel Opinions"
                 />
               </div>
-              <div className="lg:w-3/4 w-10/12 pb-4 pt-2 z-10">
+              <div className="lg:w-3/4 w-10/12 z-10">
                 {features.map(({ node }, index) => (
                   // The tag below includes the markup for each post - components/common/PostCard.js
                   <PostCard
@@ -51,13 +51,11 @@ const Index = ({ data, location, pageContext }) => {
           )}
           {pageContext.pageNumber === 0 && (
             <div className="lg:w-3/4 w-10/12 justify-center z-10">
-              <h1
-                id="latest"
-                className="font-bold text-ro xl:text-ro-white text-3xl font-quote pb-3 pt-4 text-center"
-              >
-                Latest Articles
+              <h1 className="font-bold text-ro-white text-3xl font-quote pb-3 pt-4 text-center rounded-lg latest">
+                <span className="latestText p-3 rounded-lg">
+                  Latest Articles
+                </span>
               </h1>
-              <hr className="h-1 bg-ro-black border-0"></hr>
             </div>
           )}
 

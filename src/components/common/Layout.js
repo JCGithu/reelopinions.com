@@ -151,7 +151,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, postTitle }) => {
             </div>
           </div>
         </header>
-        <div className="viewport-top flex-grow bg-white">
+        <div className="viewport-top flex-grow bg-ro-white2">
           {/* The main header section on top of the screen */}
           <main className="site-main">
             {/* All the main content gets inserted here, index.js, post.js */}
@@ -160,7 +160,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, postTitle }) => {
         </div>
         <div className="w-full overflow-y-hidden flex-none">
           {/* The footer at the very bottom of the screen */}
-          <footer className="w-full bg-ro h-16 p-0 text-ro-white justify-center flex">
+          <footer className="w-full bg-ro-vibrantdark h-16 p-0 text-ro-white justify-center flex">
             <div className="w-full md:w-3/4 gap-2 grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid-rows-2 items-center h-full">
               <div className="lg:justify-self-start justify-self-center flex flex-row items-center">
                 <Navigation

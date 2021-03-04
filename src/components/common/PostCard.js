@@ -25,26 +25,19 @@ const PostCard = ({ post, feature, banner, index }) => {
       "md:col-span-3 md:col-start-10 md:row-start-3",
       "md:col-span-6 md:col-start-1 md:row-start-4",
       "md:col-span-6 md:col-start-7 md:row-start-4",
-      "md:col-span-12 md:col-start-1 md:row-start-5",
-      "md:col-span-4 md:col-start-1 md:row-start-6",
-      "md:col-span-4 md:col-start-5 md:row-start-6",
-      "md:col-span-4 md:col-start-9 md:row-start-6",
+      "md:col-span-3 md:col-start-1 md:row-start-5",
+      "md:col-span-3 md:col-start-4 md:row-start-5",
+      "md:col-span-3 md:col-start-7 md:row-start-5",
+      "md:col-span-3 md:col-start-10 md:row-start-5",
     ];
     placeSet = settings[index];
     return (
       <div
         className={`col-span-1 row-span-1 col-start-1 row-start-${
           index + 1
-        } ${placeSet} ${
-          index === 11 && "flex items-center justify-center"
-        } ${bannerBox}`}
+        } ${placeSet} ${bannerBox}`}
       >
-        <div
-          className={`p-2 relative ${
-            index === 11 &&
-            "grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 md:w-4/6 w-full bg-gray-200 md:rounded-xl rounded-none"
-          }`}
-        >
+        <div className={`p-2 relative`}>
           <header>
             <div className="w-full items-center relative flex rounded object-cover">
               <Link to={url}>
@@ -84,7 +77,7 @@ const PostCard = ({ post, feature, banner, index }) => {
           </header>
           <div>
             {index > 1 && (
-              <div className={`${index === 11 && "mx-3"}`}>
+              <div>
                 <div className="flex flex-row py-1">
                   {post.primary_tag && (
                     <div className="text-xs text-ro-lblue font-bold rounded-md w-100 pr-2 mr-1">

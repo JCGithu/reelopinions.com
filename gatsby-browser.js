@@ -1,6 +1,7 @@
 const { contains } = require("cheerio");
 
 require("./src/styles/tailwind.css");
+require("./src/styles/app.css");
 /* eslint-disable */
 /**
  * Trust All Scripts

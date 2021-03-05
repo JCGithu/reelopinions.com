@@ -8,26 +8,20 @@ body {
 
 .font-quote ::-moz-selection,
 .latest ::-moz-selection,
-h1 ::-moz-selection {
-  background-color: #dd614a;
-  color: #fff9e0;
+h1 ::-moz-selection,
+p ::-moz-selection,
+.select-red ::-moz-selection {
+  background-color: #dd614a !important;
+  color: #fff9e0 !important;
 }
 
 .font-quote ::selection,
 .latest ::selection,
-h1 ::selection {
-  background-color: #dd614a;
-  color: #fff9e0;
-}
-
-h1 ::-moz-selection {
-  background-color: #dd614a;
-  color: #fff9e0;
-}
-
-h1 ::selection {
-  background-color: #dd614a;
-  color: #fff9e0;
+h1 ::selection,
+p ::selection,
+.select-red ::selection {
+  background-color: #dd614a !important;
+  color: #fff9e0 !important;
 }
 
 .latest {
@@ -243,11 +237,11 @@ h1 ::selection {
 }
 
 #anchor {
-  width: 100%;
+  width: 100% !important;
   position: relative;
   padding: 0.75rem;
   margin: 0.5rem;
-  height: 12rem;
+  height: 12rem !important;
 }
 
 .slide-bottom {

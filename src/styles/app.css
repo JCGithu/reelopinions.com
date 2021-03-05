@@ -207,7 +207,7 @@ p ::selection,
   }
 }
 
-.load-external-scripts .kg-embed-card iframe {
+.load-external-scripts iframe {
   width: 100%;
   height: 100%;
 }

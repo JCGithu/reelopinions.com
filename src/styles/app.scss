@@ -17,17 +17,12 @@ body {
 
 .font-quote,
 .latest,
-h1 {
+h1,
+p,
+.select-red {
   ::selection {
-    background-color: #dd614a;
-    color: #fff9e0;
-  }
-}
-
-h1 {
-  ::selection {
-    background-color: #dd614a;
-    color: #fff9e0;
+    background-color: #dd614a !important;
+    color: #fff9e0 !important;
   }
 }
 
@@ -202,11 +197,11 @@ h1 {
 }
 
 #anchor {
-  width: 100%;
+  width: 100% !important;
   position: relative;
   padding: 0.75rem;
   margin: 0.5rem;
-  height: 12rem;
+  height: 12rem !important;
 }
 
 .slide-bottom {

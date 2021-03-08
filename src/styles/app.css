@@ -243,7 +243,6 @@ p ::selection,
   padding-bottom: calc(9 / 16 * 100%);
 }
 
-/* purgecss end ignore */
 #anchor {
   width: 100% !important;
   position: relative;
@@ -252,6 +251,7 @@ p ::selection,
   height: 12rem !important;
 }
 
+/* purgecss end ignore */
 .slide-bottom {
   -webkit-animation: slide-bottom 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
           animation: slide-bottom 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;

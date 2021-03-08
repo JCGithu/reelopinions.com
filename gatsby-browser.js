@@ -36,9 +36,9 @@ var trustAllScripts = function () {
     var embed = embedNodes[i];
     if (embed.src.includes("youtube.com")) {
       embed.parentNode.classList.add("aspect-16-9");
-      embed.removeAttribute("width");
-      embed.removeAttribute("height");
     }
+    embed.removeAttribute("width");
+    embed.removeAttribute("height");
   }
 };
 

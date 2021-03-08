@@ -207,6 +207,7 @@ p ::selection,
   }
 }
 
+/* purgecss start ignore */
 .load-external-scripts img {
   width: 100%;
   padding: 1rem;
@@ -241,6 +242,7 @@ p ::selection,
   padding-bottom: calc(9 / 16 * 100%);
 }
 
+/* purgecss end ignore */
 #anchor {
   width: 100% !important;
   position: relative;

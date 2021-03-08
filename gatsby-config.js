@@ -61,6 +61,7 @@ module.exports = {
         printRejected: false,
         develop: false,
         tailwind: true,
+        whitelist: ".load-external-scripts",
       },
     },
     /**

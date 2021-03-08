@@ -197,6 +197,11 @@ p,
   }
 }
 
+.aspect-16-9 {
+  position: relative;
+  padding-bottom: calc(9 / 16 * 100%);
+}
+
 #anchor {
   width: 100% !important;
   position: relative;

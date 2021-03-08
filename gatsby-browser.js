@@ -35,7 +35,7 @@ var trustAllScripts = function () {
   for (var i = 0; i < embedNodes.length; i += 1) {
     var embed = embedNodes[i];
     if (embed.src.includes("youtube.com")) {
-      embed.parentNode.classList.add("aspect-w-16", "aspect-h-9");
+      embed.parentNode.classList.add("aspect-16-9");
       embed.removeAttribute("width");
       embed.removeAttribute("height");
     }

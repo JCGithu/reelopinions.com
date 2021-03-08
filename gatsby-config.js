@@ -61,7 +61,12 @@ module.exports = {
         printRejected: false,
         develop: false,
         tailwind: true,
-        whitelist: [".load-external-scripts", ".kg-embed-card", "iframe"],
+        whitelist: [
+          ".load-external-scripts",
+          ".kg-embed-card",
+          "iframe",
+          ".aspect-16-9",
+        ],
       },
     },
     /**

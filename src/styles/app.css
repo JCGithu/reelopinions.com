@@ -207,11 +207,6 @@ p ::selection,
   }
 }
 
-.load-external-scripts iframe {
-  width: 100%;
-  height: 100%;
-}
-
 .load-external-scripts img {
   width: 100%;
   padding: 1rem;
@@ -234,6 +229,16 @@ p ::selection,
 .load-external-scripts h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.kg-embed-card iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.aspect-16-9 {
+  position: relative;
+  padding-bottom: calc(9 / 16 * 100%);
 }
 
 #anchor {

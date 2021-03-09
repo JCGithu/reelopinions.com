@@ -6,14 +6,7 @@ import { Layout } from "../components/common";
 
 import AuthorCard from "../components/AuthorCard";
 
-/**
- * Author page (/author/:slug)
- *
- * Loads all posts for the requested author incl. pagination.
- *
- */
 const Writers = ({ data }) => {
-  //console.log(data.allGhostAuthor.edges);
   var authors = data.allGhostAuthor.edges;
   return (
     <>
